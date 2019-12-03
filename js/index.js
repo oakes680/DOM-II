@@ -91,12 +91,19 @@ pic.addEventListener('dblclick', function(e) {
 // keydown
 
 const island = document.querySelector(".destination .hi")
-
-document.addEventListener('keydown', logKey)
-
-function logKey() {
+document.addEventListener('keydown', ()  => {
   island.classList.toggle('large')
-}
+})
+
+
+
+
+
+
+// document.addEventListener('keydown', logKey)
+// function logKey() {
+//   island.classList.toggle('large')
+// }
 
 
 
@@ -125,3 +132,14 @@ btn.addEventListener('click', function(){
   TweenMax.set("#button",{text:"loading", background:"red", color:"white"});
   dots.play();
 });
+
+
+
+
+
+document.addEventListener("keyup", log);
+document.addEventListener("keypress", log);
+document.addEventListener("keydown", log);
+function log(event){
+  console.log(event.type);
+}

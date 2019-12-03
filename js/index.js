@@ -57,6 +57,11 @@ window.addEventListener('resize', (event) => {
 });
 //  scroll
 
+const scroll1 = document.querySelector('.pic7')
+window.addEventListener('scroll', (e) => {
+  scroll1.style.transform = "scale(1.2)";
+  scroll1.style.transition = "transform 0.5s";
+})
 
 //  select
 const select = document.querySelector(".intro h2")
@@ -68,7 +73,14 @@ select.addEventListener('select', function(e) {
 const pic = document.querySelector(".intro h2")
 
 pic.addEventListener('dblclick', function(e) {
-  pic.classList.toggle('large');
+  //pic.classList.toggle('large');
+  gsap.to(pic, {
+     duration: 1.5,
+     rotateX: 360,
+     ease: "slow(0.7, 0.7, false)"
+     //event.stopPropagation();
+    })
+    event.stopPropagation();
 })
 
 // pic.addEventListener('dblclick', (e) => {
@@ -85,3 +97,31 @@ document.addEventListener('keydown', logKey)
 function logKey() {
   island.classList.toggle('large')
 }
+
+
+
+const body = document.querySelector('body');
+
+// body.addEventListener("click", () => {
+//   body.style.backgroundColor="papayawhip";
+//   console.log("me last!")
+// })
+
+const footp = document.querySelector(".footer p");
+footp.addEventListener('click', () => {
+  footp.style.color= "red";
+  console.log("me second!");
+  event.stopPropagation();
+})
+
+
+const btn = document.querySelector('#button')
+var dots = new TimelineMax({paused:true,repeat:10, repeatDelay:0.5})
+.to("#button",0.3,{text:"loading ."})
+.to("#button",0.3,{text:"loading .."})
+.to("#button",0.3,{text:"loading ..."})
+
+btn.addEventListener('click', function(){
+  TweenMax.set("#button",{text:"loading", background:"red", color:"white"});
+  dots.play();
+});

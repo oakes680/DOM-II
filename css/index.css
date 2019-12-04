@@ -350,3 +350,9 @@ img {
   background: #FFFFFF;
   color: #17A2B8;
 }
+.large {
+  transform: scale(1.3);
+}
+.ggg {
+  color: pink !important;
+}
